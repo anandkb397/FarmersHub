@@ -27,6 +27,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard),
     path('logout/', views.logout_view),
     path('sms/', views.sms),
+    path('404/', views.pagenotfound),
 ]
 
 

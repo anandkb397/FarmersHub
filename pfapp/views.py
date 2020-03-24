@@ -15,43 +15,43 @@ def rfact (cr,r):
     return {i[1][0]:r[i[0]] for i in enumerate(cr.description)}
 
 def index(request):
- try:
-    t= loader.get_template("index.html")
-    #code for login
-    nousr = True
-    wrong_pwd = False
+    # try:
+        t= loader.get_template("index.html")
+        #code for login
+        nousr = True
+        wrong_pwd = False
 
-    #codes for signin and signup
-    if request.method == "POST":
-        #code to signin
-        if 'signin' in request.POST:
-            email = request.POST['email']
-            pwd = request.POST['pwd']
-            user = authenticate(request, username=email, password=pwd)
-            if user is not None:
-                login(request, user)
-                nousr = False
-                messages.info(request, 'Login sucessful!')
-                request.session['email'] = email
-                return HttpResponseRedirect('/dashboard/', request)
-            else:
-                messages.info(request, 'Invalid Email Id or Password!')
-        # code to signup
-        if 'signup' in request.POST:
-            user = authenticate(request, email=request.POST['email'], password=request.POST['pwd'])
-            if user is not None:
-                messages.info(request, 'User Exists!')
-            else:
-                user = User.objects.create_user(username=request.POST['email'], email=request.POST['email'], password=request.POST['pwd'])
-                messages.info(request, 'user Created')
-                messages.info(request, 'Login Now')
-                return HttpResponseRedirect('', request)
+        #codes for signin and signup
+        if request.method == "POST":
+            #code to signin
+            if 'signin' in request.POST:
+                email = request.POST['email']
+                pwd = request.POST['pwd']
+                user = authenticate(request, username=email, password=pwd)
+                if user is not None:
+                    login(request, user)
+                    nousr = False
+                    messages.info(request, 'Login sucessful!')
+                    request.session['email'] = email
+                    return HttpResponseRedirect('/dashboard/', request)
+                else:
+                    messages.info(request, 'Invalid Email Id or Password!')
+            # code to signup
+            if 'signup' in request.POST:
+                user = authenticate(request, email=request.POST['email'], password=request.POST['pwd'])
+                if user is not None:
+                    messages.info(request, 'User Exists!')
+                else:
+                    user = User.objects.create_user(username=request.POST['email'], email=request.POST['email'], password=request.POST['pwd'])
+                    messages.info(request, 'user Created')
+                    messages.info(request, 'Login Now')
+                    return HttpResponseRedirect('/', request)
 
-    ##code for displaying  fruits list under products
-    f = Fruits.objects.all()
-    return HttpResponse(t.render({'nousr': nousr, 'wrong_pwd': wrong_pwd, 'Fruits': f}, request))
- except Exception as ex:
-     return HttpResponseRedirect('/404/', request)
+        ##code for displaying  fruits list under products
+        f = Fruits.objects.all()
+        return HttpResponse(t.render({'nousr': nousr, 'wrong_pwd': wrong_pwd, 'Fruits': f}, request))
+    # except Exception as ex:
+    #     return HttpResponseRedirect('/404/', request)
 
 
 
@@ -67,6 +67,7 @@ def dashboard(request):
 
 def logout_view(request):
     logout(request)
+    return HttpResponseRedirect('', request)
     # Redirect to a success page.
 
 def signin(request):
@@ -224,3 +225,6 @@ def sms(request):
     return HttpResponse(lin.render({'data': data.decode("utf-8")}, request))
 
 
+def pagenotfound(request):
+    page = loader.get_template("404.html")
+    return HttpResponse(page.render({}, request))
