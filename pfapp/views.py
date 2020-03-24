@@ -27,7 +27,7 @@ def index(request):
             if 'signin' in request.POST:
                 email = request.POST['email']
                 pwd = request.POST['pwd']
-                user = authenticate(request, username=email, password=pwd)
+                user = authenticate(request, email=email, password=pwd)
                 if user is not None:
                     login(request, user)
                     nousr = False
@@ -38,11 +38,11 @@ def index(request):
                     messages.info(request, 'Invalid Email Id or Password!')
             # code to signup
             if 'signup' in request.POST:
-                user = authenticate(request, email=request.POST['email'], password=request.POST['pwd'])
-                if user is not None:
+                signup_user = authenticate(request, email=request.POST['email'], password=request.POST['pwd'])
+                if signup_user is not None:
                     messages.info(request, 'User Exists!')
                 else:
-                    user = User.objects.create_user(username=request.POST['email'], email=request.POST['email'], password=request.POST['pwd'])
+                    signup_user = User.objects.create_user(username=request.POST['email'], email=request.POST['email'], password=request.POST['pwd'])
                     messages.info(request, 'user Created')
                     messages.info(request, 'Login Now')
                     return HttpResponseRedirect('/', request)
