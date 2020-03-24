@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dec9dd2d-a88e-485e-b73f-f877a252af0d" name="Default Changelist" comment="" />
+    <list default="true" id="dec9dd2d-a88e-485e-b73f-f877a252af0d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pfapp/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +32,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -50,6 +53,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\pyps\pf\pfapp" />
       <recent name="E:\pyps\pf\pfapp\function" />
       <recent name="E:\pyps\pf\pfapp\static" />
     </key>
@@ -91,6 +95,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="275" y="22" key="#Notifications" timestamp="1585072553226">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1585072553226" />
     <state x="137" y="19" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583690502539">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -107,14 +115,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="127" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1584619776808" />
-    <state x="184" y="6" key="SettingsEditor" timestamp="1583690061305">
+    <state x="184" y="6" key="SettingsEditor" timestamp="1585072573532">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1583690061305" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1585071979902">
+    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585072573532" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1585072696073">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585071979902" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585072696073" />
     <state x="92" y="92" width="1182" height="544" key="dock-window-1" timestamp="1582806711572">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
