@@ -1,6 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Acctype(models.Model):
+    User_id = models.ForeignKey('Person', on_delete=models.CASCADE,)
     acctypes = models.CharField(max_length=30)
     roles = models.CharField(max_length=30)
 

@@ -20,7 +20,7 @@ def index(request):
     #code for login
     nousr = True
     wrong_pwd = False
-    user = ''
+
     #codes for signin and signup
     if request.method == "POST":
         #code to signin
@@ -49,7 +49,7 @@ def index(request):
 
     ##code for displaying  fruits list under products
     f = Fruits.objects.all()
-    return HttpResponse(t.render({'nousr': nousr, 'wrong_pwd': wrong_pwd, 'Fruits': f, 'logged_usr': user}, request))
+    return HttpResponse(t.render({'nousr': nousr, 'wrong_pwd': wrong_pwd, 'Fruits': f}, request))
  except Exception as ex:
      return HttpResponseRedirect('/404/', request)
 
