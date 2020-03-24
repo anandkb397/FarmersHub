@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+          .flash-full {
+    margin-top: -1px;
+    border-width: 1px 0;
+    border-radius: 0;
+    box-shadow: 0 0 17px black;
+}
+
+.flash {
+    padding: 15px 20px;
+    margin: 0 auto 10px;
+    font-size: 13px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.flash-error {
+    color: #86181d;
+    background-color: #ffdce0;
+}
+.js-flash-close{}
+.flash-close{}
+      </style>
+<script>
+	$("js-flash-close" ).fadeOut(3000);
+	$("flash-close" ).fadeOut(3000);
+</script>
+
+        <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-7 ftco-animate">
+
+			  {% if nousr %}
+			  <div class="flash flash-full flash-error">
+  				<div class="container-lg px-2">
+    				<button class="flash-close js-flash-close" type="button" aria-label="Dismiss this message">
+      					<svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true">
+							<path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z">
+							</path>
+						</svg>
+    				</button>
+					Incorrect username.
+				</div>
+			  </div>
+			  {% endif %}
+
+			  {% if wrong_pwd %}
+			  <div class="flash flash-full flash-error">
+  				<div class="container-lg px-2">
+    				<button class="flash-close js-flash-close" type="button" aria-label="Dismiss this message">
+      					<svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true">
+							<path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z">
+							</path>
+						</svg>
+    				</button>
+					Incorrect password.
+				</div>
+			  </div>
+			  {% endif %}
+
+            <form action="/login1/" class="billing-form" method="post">{% csrf_token %}
+							<h3 class="mb-4 billing-heading">Login</h3>
+	          	<div class="row align-items-end">
+	          		<div class="col-md-6">
+	                <div class="form-group">
+	                	<label>Email</label>
+	                  <input type="email" class="form-control" placeholder="youremail@example.com" name="email" required>
+	                </div>
+	              </div>
+	              <div class="col-md-6">
+	                <div class="form-group">
+	                	<label>Password</label>
+	                  <input type="password" class="form-control" placeholder="Your Password" name="pwd" required>
+	                </div>
+                </div>
+                <div class="w-100"></div>
+
+		            <div class="w-100"></div>
+		            <div class="w-100"></div>
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+	              </div>
+	            </div>
+				<div align="center">
+				<input type="submit" class="btn btn-primary py-3 px-4" value="signin" name="signin">
+		  </div>
+
+				</form><!-- END -->
+		  </div>
+		</div>
+	  </div>
+
+
+        </section>
+{% endblock %}
+

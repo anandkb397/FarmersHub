@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block content %}
+<script type="text/javascript">
+	function readURL(input,imgid) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#'+imgid)
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+{% if messages %}
+    {% for message in messages %}
+	    {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+    {% endfor %}
+    {% endif %}
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 ftco-animate">
+
+            <form action="/signup/" class="billing-form" method="post"  enctype="multipart/form-data">{% csrf_token %}
+                <h3 class="mb-4 billing-heading">signup</h3>
+	          	<div class="row align-items-end">
+
+	          		<div class="col-md-6">
+	                <div class="form-group">
+                        {% if snd %}
+                        <label>OTP</label>
+	                  <input type="text" class="form-control" placeholder="XXXXXX" name="otp">
+	                </div>
+	              </div>
+
+					<div class="w-100"></div>
+
+					<div class="col-md-6">
+	                <div class="form-group">
+	                	<label>Password</label>
+	                  <input type="password" class="form-control" placeholder="Your Password" name="pwd">
+	                </div>
+                </div>
+
+                <div class="w-100"></div>
+
+					<div class="col-md-6">
+	                <div class="form-group">
+	                  <input type="hidden" class="form-control" value="{{data}}" name="hdata">
+					<input type='file' name='fimg' onchange="readURL(this,'pimg');"  style="float:left" accept="image/jpeg, image/png"/>
+	               <img id="pimg" src="#" alt="product image" width="60" height="60" style="float:right"  />
+	                </div>
+                </div>
+
+		            <div class="w-100"></div>
+
+					<div class="col-md-6">
+	                <div class="form-group">
+	                  <input type="submit" class="btn btn-primary py-3 px-4" value="Confirm" name="btncnf">
+	                </div>
+                </div>
+
+		            <div class="w-100"></div>
+		            {% else %}
+
+					<div class="col-auto">
+	                <div class="form-group">
+	                	<label>Email</label>
+	                  <input type="email" class="form-control" value="{{data.email}}" name="email" placeholder="youremail@example.com">
+	                </div>
+                </div>
+
+					<div class="w-100"></div>
+
+					<div align="center">
+	                	<input type="submit" class="btn btn-primary py-3 px-4" value="register" name="signup">
+	                </div>
+                </div>
+
+				{% endif %}
+
+
+				</form><!-- END -->
+
+				<br>
+    {{msg}}
+    <br>
+		  </div>
+		</div>
+	  </div>
+
+
+</section>
+
+{% endblock %}
