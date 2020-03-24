@@ -1,3 +1,9 @@
+appdirs==1.4.3
+distlib==0.3.0
+filelock==3.0.12
+six==1.14.0
+virtualenv==20.0.5
+virtualenvwrapper-win==1.2.6
 asgiref==3.2.3
 Django==3.0.3
 pytz==2019.3
