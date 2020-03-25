@@ -7,6 +7,7 @@ from pfapp.models import Person, Fruits
 from django.core.mail import EmailMessage
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.models import User
+from .admin import Person
 from django.contrib.auth import authenticate, login, logout
 import uuid
 import json
@@ -25,14 +26,14 @@ def index(request):
         if request.method == "POST":
             #code to signin
             if 'signin' in request.POST:
-                email = request.POST['email']
-                pwd = request.POST['pwd']
-                user = authenticate(request, email=email, password=pwd)
+                # email = request.POST['email']
+                # pwd = request.POST['pwd']
+                user = authenticate(request, email=request.POST['email'], password=request.POST['pwd'])
                 if user is not None:
                     login(request, user)
                     nousr = False
                     messages.info(request, 'Login sucessful!')
-                    request.session['email'] = email
+                    # request.session['email'] = email
                     return HttpResponseRedirect('/dashboard/', request)
                 else:
                     messages.info(request, 'Invalid Email Id or Password!')
