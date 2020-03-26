@@ -17,3 +17,4 @@ STATICFILES_DIRS = (
 
 
 # web: bin/start-pgbouncer-stunnel gunicorn pf.wsgi
+web: gunicorn pf.wsgi --log-file -

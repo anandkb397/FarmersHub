@@ -1,1 +1,1 @@
-web: gunicorn pf.wsgi --log-file -
+web: bin/start-pgbouncer-stunnel gunicorn hellodjango.wsgi
