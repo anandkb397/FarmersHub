@@ -76,27 +76,36 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pf.wsgi.application'
 
 
-# Database
+# Database for production/deployment
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+# DATABASES = {
+#
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd2d4f9ruke5hts',
+#         'USER': 'yefpnulvdfsqrs',
+#         'PASSWORD': 'aa27666a7de5e0032dcefa33acd7094c97e971f6285e3bdf05a70157ba303fae',
+#         'HOST': 'ec2-52-71-231-180.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#
+#     }
+# }
 
+# ***Database for local testing****
 DATABASES = {
-    'default1': {
+
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd2d4f9ruke5hts',
-        'USER': 'yefpnulvdfsqrs',
-        'PASSWORD': 'aa27666a7de5e0032dcefa33acd7094c97e971f6285e3bdf05a70157ba303fae',
-        'HOST': 'ec2-52-71-231-180.compute-1.amazonaws.com',
-        'PORT': '5432',
-
     }
 }
+
+
 # heroku database connection setting
-# import dj_database_url
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -134,6 +143,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 STATIC_URL = '/static/'
+
 #email
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS =True
