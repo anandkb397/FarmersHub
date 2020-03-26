@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dec9dd2d-a88e-485e-b73f-f877a252af0d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/runtime.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pf/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/pf/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pf/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/pf/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime.txt" beforeDir="false" afterPath="$PROJECT_DIR$/runtime.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
