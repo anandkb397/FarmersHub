@@ -1,1 +1,1 @@
-web: gunicorn pfapp.wsgi --log-file -
+web: gunicorn pf.wsgi --log-file -
