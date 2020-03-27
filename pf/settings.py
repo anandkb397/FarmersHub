@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'tt7h_h!^)uj$y=$!^7$1*b9-29g+)8n$qa_uz(_t_rk-1owl&2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 # DEBUG = config('DEBUG', default=False, cast=bool)
-DEBUG = False
+
 
 ALLOWED_HOSTS = []
 
@@ -76,7 +76,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pf.wsgi.application'
 
 
-# Database for production/deployment
+# **********Database for production/deployment on heroku ******************
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 # DATABASES = {
 #
@@ -90,6 +90,10 @@ WSGI_APPLICATION = 'pf.wsgi.application'
 #
 #     }
 # }
+# heroku database connection setting
+# import dj_database_url
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
 
 # ***Database for local testing****
 DATABASES = {
@@ -101,9 +105,7 @@ DATABASES = {
 }
 
 
-# heroku database connection setting
-import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
 
 
 # Password validation
