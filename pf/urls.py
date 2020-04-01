@@ -16,17 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pfapp import views
-from pfapp.function import login
 
 urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', views.index),
     path('signup/', views.signup),
-    #path('login/', views.login),
+    # path('', views.login),
     path('dashboard/', views.dashboard),
-    path('logout/', views.logout_view),
-    path('sms/', views.sms),
+    path('logout/', views.logout),
+
     path('404/', views.pagenotfound),
 ]
 

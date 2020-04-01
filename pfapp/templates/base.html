@@ -2,80 +2,79 @@
 <html lang="en">
   <head>
 	  {% if messages %}
-					{% for message in messages %}
-						{% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
-					{% endfor %}
-				{% endif %}
-    <title>Vegefoods - Free Bootstrap 4 Template by Colorlib</title>
+            {% for message in messages %}
+                {% if message.tags %}
+                    <script>alert("{{ message }}")</script>
+                {% endif %}
+			{% endfor %}
+      {% endif %}
+    <title>FarmersHub</title>
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="/static/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/animate.css">
     <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="/static/css/magnific-popup.css">
-
     <link rel="stylesheet" href="/static/css/aos.css">
-
     <link rel="stylesheet" href="/static/css/ionicons.min.css">
-
     <link rel="stylesheet" href="/static/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="/static/css/jquery.timepicker.css">
-
-
     <link rel="stylesheet" href="/static/css/flaticon.css">
     <link rel="stylesheet" href="/static/css/icomoon.css">
     <link rel="stylesheet" href="/static/css/style.css">
-
-      <script>
-          var phoneNumber = getPhoneNumberFromUserInput();
-          var appVerifier = window.recaptchaVerifier;
-          firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier).then(function (confirmationResult) {
-                // SMS sent. Prompt user to type the code from the message, then sign the
-                // user in with confirmationResult.confirm(code).
-                window.confirmationResult = confirmationResult;
-                }
-                ).catch(function (error) {
-      // Error; SMS not sent
-      // ...
-    });
-
-      </script>
-
   </head>
-  <body class="goto-here">
 
-{% ifequal nousr True %}
-<form action=""  method="post">{% csrf_token %}
-    <div >
+  <body class="goto-here">
+<header>
+{% if usr  %}
+    <div class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+        <div class="container">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="" class="nav-link">{{usr.email}}</a></li>
+                {% ifequal usr.type 'farmer' %}
+                <li class="nav-item"><a href="" class="nav-link">{{usr.type}}</a></li>
+                {% endifequal %}
+                <li class="nav-item"><a href="/logout/" class="nav-link">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+{% else %}
+    <form action="/"  method="post">{% csrf_token %}
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
 	    <div class="container">
 	      <a class="navbar-brand" href="/">FarmersHub</a>
 	      <div class="collapse navbar-collapse" id="ftco-nav1">
 	        <ul class="navbar-nav ml-auto">
-
                     <li class="nav-item active"><a class="nav-link"><input type="text" class="form-control" placeholder="youremail@example.com" name="email" required></a></li>
                 <li class="nav-item active"><a class="nav-link"><input type="password" class="form-control" placeholder="Your Password" name="pwd" required></a></li>
                 <li class="nav-item active"><a class="nav-link"><input type="submit" class="btn btn-primary py-3 px-4 " value="signin" name="signin"></a></li>
-                <li class="nav-item mb-4 ">or</li>
-                <li class="nav-item active"><a class="nav-link"><input type="submit" class="btn btn-primary py-3 px-4 " value="SignUp Now" name="signup"></a></li>
 
+                {% if signup_page %}
+                {% else %}
+                <li class="nav-item mb-4 "><a class="nav-link py-3 px-4 ">OR</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/signup/" ><input type="button" class="btn btn-primary py-3 px-4 " value="SignUp Now" name="signup"></a></li>
+                {% endif %}
             </ul>
 	      </div>
 	    </div>
-	  </div>
+	  </nav>
     </form>
-{% endifequal %}
+{% endif %}
 
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+{% if usr %}
+{% else %}
+            <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-            {% ifequal nousr False %}
-	      <a class="navbar-brand" href="index.html">FarmersHub</a>
-            {% endifequal %}
+
+
+
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -96,22 +95,13 @@
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                {% ifequal nousr False %}
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">Welcome {{logged_usr}}</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                <a class="dropdown-item" href="/logout/">logout</a>
-                </div>
-                </li>
-
-                {% endifequal %}
-	          <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
+{% endif %}
+</header>
 
     {% block content %}
     {% endblock %}
@@ -212,6 +202,23 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="/static/js/google-map.js"></script>
   <script src="/static/js/main.js"></script>
+
+  <script type="text/javascript">
+	function readURL(input,imgid) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#'+imgid)
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 
 
   </body>

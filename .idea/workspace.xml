@@ -2,8 +2,265 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dec9dd2d-a88e-485e-b73f-f877a252af0d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/contactform/Readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/contactform/contactform.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/css/style-responsive.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/css/table-responsive.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/css/to-do.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/css/zabuto_calendar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/404.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/500.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/blog-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/checkbox-gray.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/friends/fr-01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/friends/fr-02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/friends/fr-03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/friends/fr-04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/friends/fr-05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/friends/fr-06.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/friends/fr-07.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/friends/fr-08.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/friends/fr-09.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/friends/fr-10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/friends/fr-11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/instagram.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/login-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/lorde.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/mask.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/ny.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/portfolio/port01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/portfolio/port02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/portfolio/port03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/portfolio/port04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/portfolio/port05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/portfolio/port06.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/product.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/profile-01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/profile-02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/radio-gray.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/ui-danro.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/ui-divya.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/ui-sam.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/ui-sherman.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/ui-zac.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/weather.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/img/zoom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/css/DT_bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/css/demo_page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/css/demo_table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/css/demo_table_jui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/css/jquery.dataTables.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/css/jquery.dataTables_themeroller.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/Sorting icons.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/back_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/back_enabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/back_enabled_hover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/details_close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/details_open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/forward_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/forward_enabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/forward_enabled_hover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/sort_asc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/sort_asc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/sort_both.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/sort_desc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/images/sort_desc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/js/DT_bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/js/jquery.dataTables.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/js/jquery.dataTables.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-datatable/js/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/advanced-form-components.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-datepicker/css/datepicker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-datepicker/js/bootstrap-datepicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-daterangepicker/date.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-daterangepicker/daterangepicker-bs3.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-daterangepicker/daterangepicker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-daterangepicker/daterangepicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-daterangepicker/moment.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-datetimepicker/css/datetimepicker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-fileupload/bootstrap-fileupload.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-fileupload/bootstrap-fileupload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-inputmask/bootstrap-inputmask.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-switch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-timepicker/compiled/timepicker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-timepicker/js/bootstrap-timepicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-wysihtml5/bootstrap-wysihtml5.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-wysihtml5/bootstrap-wysihtml5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap-wysihtml5/wysihtml5-0.3.0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/calendar-conf-events.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/chart-master/Chart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/chartjs-conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/ckeditor/ckeditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/common-scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/dropzone/css/dropzone.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/dropzone/dropzone.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/dropzone/images/spritemap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/dropzone/images/spritemap@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/easy-pie-chart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/fancybox/jquery.fancybox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/fancybox/jquery.fancybox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/css/jquery.fileupload-noscript.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/css/jquery.fileupload-ui-noscript.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/css/jquery.fileupload-ui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/css/jquery.fileupload.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/img/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/img/progressbar.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/js/cors/jquery.xdr-transport.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/js/jquery.fileupload-audio.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/js/jquery.fileupload-image.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/js/jquery.fileupload-process.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/js/jquery.fileupload-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/js/jquery.fileupload-validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/js/jquery.fileupload-video.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/js/jquery.fileupload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/js/jquery.iframe-transport.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/file-uploader/js/vendor/jquery.ui.widget.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/flot/jquery.flot.crosshair.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/flot/jquery.flot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/flot/jquery.flot.pie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/flot/jquery.flot.resize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/flot/jquery.flot.stack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/flotchart-conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/font-awesome/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/font-awesome/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/font-awesome/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/form-component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/form-validation-script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/fullcalendar/bootstrap-fullcalendar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/fullcalendar/fullcalendar.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/google-maps/data/points.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/google-maps/maplace.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/gritter-conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/gritter/css/jquery.gritter.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/gritter/css/jquery.gritter0.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/gritter/images/gritter-light.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/gritter/images/gritter-long.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/gritter/images/gritter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/gritter/images/ie-spacer.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/gritter/js/jquery.gritter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/jquery-easy-pie-chart/jquery.easy-pie-chart.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/jquery-easy-pie-chart/jquery.easy-pie-chart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/jquery-ui-1.9.2.custom.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/jquery.backstretch.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/jquery.dcjqaccordion.2.7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/jquery.nicescroll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/jquery.scrollTo.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/jquery.sparkline.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/jquery.tagsinput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/jquery.ui.touch-punch.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/jquery/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/jquery/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/morris-conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/morris/morris.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/php-mail-form/validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/raphael/raphael.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/sparkline-chart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/tasks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/xchart/d3.v3.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/xchart/xcharts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/xchart/xcharts.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/static/dashboard/lib/zabuto_calendar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/500.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/Readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/advanced_form_components.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/advanced_table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/basic_table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/blank.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/buttons.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/calendar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/chartjs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/chat_room.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/contactform.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/credits.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/dropzone.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/faq.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/file_upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/flot_chart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/font_awesome.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/form_component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/form_validation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/gallery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/general.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/google_maps.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/grids.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/inbox.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/index - Copy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/inline_editor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/invoice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/lobby.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/lock_screen.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/mail_compose.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/mail_view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/morris.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/panels.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/pricing_table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/responsive_table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/todo_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfapp/templates/dashboard/xchart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/temp/Procfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/temp/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/temp/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/temp/runtime.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/temp/runtime1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pf/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/pf/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pf/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pf/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pf/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/pf/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/function/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/function/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/function/login.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/pfapp/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/blog-single.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/blog.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/cart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/checkout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/pfapp/templates/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/home_old.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pfapp/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/login_old.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/logout_old.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/model_new.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/product-single.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/shop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/pfapp/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/signup_old.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/templates/wishlist.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pfapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pfapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime1.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +291,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bootcamp-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -133,6 +390,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585075547874" />
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585671545268">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1585671545268" />
     <state x="92" y="92" width="1182" height="544" key="dock-window-1" timestamp="1582806711572">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

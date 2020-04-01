@@ -1,26 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<script type="text/javascript">
-	function readURL(input,imgid) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $('#'+imgid)
-                    .attr('src', e.target.result)
-                    .width(150)
-                    .height(200);
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
-{% if messages %}
-    {% for message in messages %}
-	    {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
-    {% endfor %}
-    {% endif %}
 
 <section class="ftco-section">
     <div class="container">
@@ -97,5 +77,6 @@
 
 
 </section>
+
 
 {% endblock %}
