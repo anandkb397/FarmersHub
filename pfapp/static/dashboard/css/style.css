@@ -24,6 +24,12 @@ body {
     font-size:13px;
 }
 
+img
+{
+background-image:url('/static/usrimg/0.png');
+border-radius: 50%;
+}
+
 ul li {
     list-style: none;
 }

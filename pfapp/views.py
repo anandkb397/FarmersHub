@@ -24,18 +24,17 @@ def pagenotfound(request):
 
 
 def index(request):
-        t = loader.get_template("index.html")
         signup_page = ''
         if 'signin' in request.POST:
-            if login(request):
-                messages.info(request, 'Login sucessful!')
-                return HttpResponseRedirect('/dashboard/', request)
+            login(request)
+        if checkuser(request):
+            dashboard = loader.get_template('dashboard_index.html')
+            messages.info(request, 'Login sucessful!')
+            return HttpResponse(dashboard.render({'usr': checkuser(request)}, request))
         else:
-        # if 'signup' in request.POST:
-        #     return HttpResponseRedirect('/signup/', request)
+            t = loader.get_template("index.html")
             f = Fruits.objects.all()
-            return HttpResponse(t.render({'usr': checkuser(request), 'Fruits': f,  'signup_page': signup_page}, request))
-
+            return HttpResponse(t.render({'usr': checkuser(request), 'Fruits': f, 'signup_page': signup_page}, request))
 
 def login(request):
     if request.method == "POST":
@@ -50,7 +49,7 @@ def login(request):
         c.close()
         # If user exist, then a session is created. Else
         if user:
-            request.session['usr'] = {'uid': user['id'], 'email': email,'type': user['type']}
+            request.session['usr'] = {'id': user['id'], 'email': email, 'type': user['type']}
             return True
         else:
             messages.info(request, 'Invalid emailID or Password')
@@ -59,7 +58,7 @@ def login(request):
 
 
 def dashboard(request):
-    dashboard = loader.get_template('dashboard/index.html')
+    dashboard = loader.get_template('dashboard_index.html')
     return HttpResponse(dashboard.render({'usr': checkuser(request)}, request))
 
 
@@ -87,9 +86,10 @@ def signup(request):
                     dv = json.loads(data)
                     email = dv['email']
                     pwd = request.POST['pwd']
+                    user_type = "consumer"
 
                     c = connection.cursor()
-                    sql = f"INSERT INTO pfapp_person (email,pwd,type) VALUES('{email}','{pwd}','farmer')"
+                    sql = f"INSERT INTO pfapp_person (email,pwd,type) VALUES('{email}','{pwd}','{user_type}')"
                     c.execute(sql) # so id is primary key wewill save photo as id.png ex:-1.png,2.png,in a sepafrated folder in static
                     lrowid=c.lastrowid # will return the autoincremented primary key value for the current insert
                     c.close()
@@ -101,9 +101,8 @@ def signup(request):
                             if fs.exists(fnam):
                                 fs.delete(fnam)
                             fs.save(fnam, fimg)
-                    stat = 'sucessfully created account'
-                    #del request.session[dv['email']]
-                    return HttpResponseRedirect('/login/',request)
+                    messages.info(request, 'Account created sucessfully!')
+                    return HttpResponseRedirect('/',request)
                 else:
                     stat = "Invalid OTP please verify with your mail..!"
                     dv = data
@@ -122,11 +121,8 @@ def signup(request):
             user = c.fetchone()
             c.close()
             if user:
-                # msg = 'user already exist'
-                # return HttpResponseRedirect('/login/', request)
-                stat = 'user already exist'
-                #del request.session['email']
-                #messages.info(request, 'user already exist')
+                stat = 'user already exist.\n'
+                stat += '\nTry login instead.'
             else:
                 # c = connection.cursor()
                 # sql = f"INSERT INTO logintab (email,pwd) VALUES('{email}','{pwd}')"
@@ -135,12 +131,12 @@ def signup(request):
                 # c.close()
                 # messages.info(request, 'Account created sucessfully!')
                 try:
-                    ky = uuid.uuid4().hex[:6].upper()
+                    ky = uuid.uuid4().hex[:6].upper() # OTP created.
                     # send mail
                     msg = "Dear Customer,\nThank you for registering with FarmersHub.\n"
                     msg += f"\n\nYour OTP is :{ky} \n please provide it in the space provided in your registartion form."
                     msg += "\n\nThanking you,\nregards,\n\nAdministrator,\nFarmersHub."
-                    mail2snd = EmailMessage('OTP for FarmersHub registration', msg, to=(email,))
+                    mail2snd = EmailMessage('OTP for FarmersHub registration', msg, to=(email,), cc=(), bcc=())
                     mail2snd.send()
                     dv = json.dumps(dv)
                     snd = True
