@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+# import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'tt7h_h!^)uj$y=$!^7$1*b9-29g+)8n$qa_uz(_t_rk-1owl&2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 # DEBUG = config('DEBUG', default=False, cast=bool)
-DEBUG = False
+
 
 ALLOWED_HOSTS = []
 
@@ -76,15 +77,36 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pf.wsgi.application'
 
 
-# Database
+# **********Database for production/deployment on heroku ******************
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+# DATABASES = {
+#
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd2d4f9ruke5hts',
+#         'USER': 'yefpnulvdfsqrs',
+#         'PASSWORD': 'aa27666a7de5e0032dcefa33acd7094c97e971f6285e3bdf05a70157ba303fae',
+#         'HOST': 'ec2-52-71-231-180.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#
+#     }
+# }
+# heroku database connection setting
+# import dj_database_url
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
+
+# ***Database for local testing****
 DATABASES = {
+
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+
 
 
 # Password validation
@@ -124,6 +146,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 STATIC_URL = '/static/'
+
 #email
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS =True
@@ -133,5 +156,4 @@ EMAIL_HOST_PASSWORD='@nand123'
 EMAIL_PORT = 587
 
 # Configure Django App for Heroku.
-import django_heroku
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
