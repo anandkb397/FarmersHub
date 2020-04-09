@@ -24,12 +24,6 @@ body {
     font-size:13px;
 }
 
-img
-{
-background-image:url('/static/usrimg/0.png');
-border-radius: 50%;
-}
-
 ul li {
     list-style: none;
 }
@@ -47,6 +41,21 @@ a, a:hover, a:focus {
     background: #4ECDC4;
     color: #fff;
 }
+
+button, button:hover, button:focus {
+    text-decoration: none;
+    outline: none;
+}
+::selection {
+
+    background: #4ECDC4;
+    color: #fff;
+}
+::-moz-selection {
+    background: #4ECDC4;
+    color: #fff;
+}
+
 
 #container {
     width: 100%;

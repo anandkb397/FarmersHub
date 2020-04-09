@@ -6,6 +6,7 @@ from django.contrib import messages
 from pfapp.models import Person, Fruits
 from django.core.mail import EmailMessage
 from django.core.files.storage import FileSystemStorage
+from django.shortcuts import redirect, render
 import uuid
 import json
 
@@ -18,9 +19,9 @@ def checkuser(request):
         user_l = request.session['usr']
     return user_l
 
-def pagenotfound(request):
-    page = loader.get_template("404.html")
-    return HttpResponse(page.render({}, request))
+# def pagenotfound(request):
+#     page = loader.get_template("404.html")
+#     return HttpResponse(page.render({}, request))
 
 
 def index(request):
@@ -29,12 +30,88 @@ def index(request):
             login(request)
         if checkuser(request):
             dashboard = loader.get_template('dashboard_index.html')
-            messages.info(request, 'Login sucessful!')
-            return HttpResponse(dashboard.render({'usr': checkuser(request)}, request))
+            content_view = ''
+            return HttpResponse(dashboard.render({'usr': checkuser(request),'content_view': content_view}, request))
         else:
             t = loader.get_template("index.html")
             f = Fruits.objects.all()
             return HttpResponse(t.render({'usr': checkuser(request), 'Fruits': f, 'signup_page': signup_page}, request))
+
+def Messages(request):
+    if checkuser(request):
+        # dashboard = loader.get_template('dashboard_index.html')
+        content_view = 'Messages'
+        return render(request, 'dashboard_index.html', {'usr': checkuser(request), 'content_view': content_view})
+        # return HttpResponse(dashboard.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login!')
+        return redirect('/')
+
+def Explore(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'Explore'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login!')
+        return redirect('/')
+
+def Settings(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'Settings'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login!')
+        return redirect('/')
+
+def Delivery_Conformation(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'Delivery_Conformation'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!!')
+        return redirect('/')
+
+def Learn_Farming(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'Learn_Farming'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!')
+        return redirect('/')
+
+def Surpluse_Market(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'Surpluse_Market'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!')
+        return redirect('/')
+
+def My_Farmers(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'My_Farmers'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!')
+        return redirect('/')
+
+def My_Contracts(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'My_Contracts'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!')
+        return redirect('/')
+
+
+
 
 def login(request):
     if request.method == "POST":
@@ -56,10 +133,6 @@ def login(request):
             return HttpResponseRedirect('/', request)
 
 
-
-def dashboard(request):
-    dashboard = loader.get_template('dashboard_index.html')
-    return HttpResponse(dashboard.render({'usr': checkuser(request)}, request))
 
 
 def logout(request):
@@ -124,12 +197,6 @@ def signup(request):
                 stat = 'user already exist.\n'
                 stat += '\nTry login instead.'
             else:
-                # c = connection.cursor()
-                # sql = f"INSERT INTO logintab (email,pwd) VALUES('{email}','{pwd}')"
-                # c.execute(sql)
-                # msg = 'successfully created account'
-                # c.close()
-                # messages.info(request, 'Account created sucessfully!')
                 try:
                     ky = uuid.uuid4().hex[:6].upper() # OTP created.
                     # send mail
