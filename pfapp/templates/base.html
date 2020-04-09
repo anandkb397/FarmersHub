@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	  {% if messages %}
-            {% for message in messages %}
-                {% if message.tags %}
-                    <script>alert("{{ message }}")</script>
-                {% endif %}
-			{% endfor %}
-      {% endif %}
+
     <title>FarmersHub</title>
 
 
@@ -29,23 +23,26 @@
     <link rel="stylesheet" href="/static/css/flaticon.css">
     <link rel="stylesheet" href="/static/css/icomoon.css">
     <link rel="stylesheet" href="/static/css/style.css">
+{% if messages %} {% for message in messages %}
+      {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+{% endfor %} {% endif %}
   </head>
 
   <body class="goto-here">
 <header>
-{% if usr  %}
-    <div class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
-        <div class="container">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="" class="nav-link">{{usr.email}}</a></li>
-                {% ifequal usr.type 'farmer' %}
-                <li class="nav-item"><a href="" class="nav-link">{{usr.type}}</a></li>
-                {% endifequal %}
-                <li class="nav-item"><a href="/logout/" class="nav-link">Logout</a></li>
-            </ul>
-        </div>
-    </div>
-{% else %}
+<!--{% if usr  %}-->
+<!--    <div class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">-->
+<!--        <div class="container">-->
+<!--            <ul class="navbar-nav ml-auto">-->
+<!--                <li class="nav-item"><a href="" class="nav-link">{{usr.email}}</a></li>-->
+<!--                {% ifequal usr.type 'farmer' %}-->
+<!--                <li class="nav-item"><a href="" class="nav-link">{{usr.type}}</a></li>-->
+<!--                {% endifequal %}-->
+<!--                <li class="nav-item"><a href="/logout/" class="nav-link">Logout</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--{% else %}-->
     <form action="/"  method="post">{% csrf_token %}
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
 	    <div class="container">

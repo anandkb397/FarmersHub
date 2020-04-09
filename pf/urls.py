@@ -21,12 +21,16 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', views.index),
+    path('Messages/', views.Messages),
+    path('Settings/', views.Settings),
+    path('Delivery_Conformation/', views.Delivery_Conformation),
+    path('Learn_Farming/', views.Learn_Farming),
+    path('Surpluse_Market/', views.Surpluse_Market),
+    path('My_Contracts/', views.My_Contracts),
+    path('My_Farmers/', views.My_Farmers),
+    path('Explore/', views.Explore),
     path('signup/', views.signup),
-    # path('', views.login),
-    path('dashboard/', views.dashboard),
     path('logout/', views.logout),
-
-    path('404/', views.pagenotfound),
 ]
 
 

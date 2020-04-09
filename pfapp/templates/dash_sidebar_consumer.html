@@ -6,60 +6,63 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="/static/usrimg/{{usr.id}}.png"  width="80"></a></p>
+          <p class="centered"><a href="profile.html"><img class="img-circle"  src="/static/usrimg/{{usr.id}}.png"  width="80"></a></p>
           <h5 class="centered">{{usr.email}}</h5>
+          <h5 class="centered">{{usr.type}}</h5>
+
           <li class="sub-menu">
-            <a  href="javascript:;">
-              <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
+            <a {% if content_view == 'Explore' %} class="active" {% endif %} href="/Explore/">
               <i class="fa fa-desktop"></i>
               <span>Explore Farmers</span>
               </a>
           </li>
 
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a {% if content_view == 'My_Farmers' %} class="active" {% endif %} href="/My_Farmers/">
               <i class="fa fa-cogs"></i>
-              <span>View Hired Farmers</span>
+              <span>My Farmers</span>
               </a>
           </li>
+
+          <li class="sub-menu">
+            <a {% if content_view == 'My_Contracts' %} class="active" {% endif %} href="/My_Contracts/">
+              <i class="fa fa-book"></i>
+              <span>My Contracts</span>
+              </a>
+          </li>
+
+          <li class="sub-menu">
+            <a {% if content_view == 'Surpluse_Market' %} class="active" {% endif %}  href="/Surpluse_Market/">
+              <i class="fa fa-dashboard"></i>
+              <span>Surpluse Market</span>
+              </a>
+          </li>
+
           <li>
-            <a href="inbox.html">
+            <a {% if content_view == 'Messages' %} class="active" {% endif %} href="/Messages/">
               <i class="fa fa-envelope"></i>
-              <span>Mail </span>
-              <span class="label label-theme pull-right mail-info">2</span>
+              <span>Massages</span>
+              <span class="label label-theme pull-right mail-info">6</span>
             </a>
         </li>
 
           <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-book"></i>
-              <span>View Contracts</span>
-              </a>
-          </li>
-
-          <li class="sub-menu">
-            <a href="javascript:;">
+            <a {% if content_view == 'Learn_Farming' %} class="active" {% endif %} href="/Learn_Farming/">
               <i class="fa fa-tasks"></i>
               <span>Learn Farming</span>
               </a>
           </li>
 
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a {% if content_view == 'Delivery_Conformation' %} class="active" {% endif %}  href="/Delivery_Conformation/">
               <i class="fa fa-th"></i>
-              <span>Package Delivery Conformation</span>
+              <span>Delivery Conformation</span>
               </a>
-            </ul>
           </li>
 
           <li class="sub-menu">
-            <a href="javascript:;">
-              <i class=" fa fa-bar-chart-o"></i>
+            <a {% if content_view == 'Settings' %} class="active" {% endif %} href="/Settings/">
+              <i class="fa fa-cogs"></i>
               <span>Settings</span>
               </a>
           </li>
@@ -69,45 +72,3 @@
       </div>
     </aside>
     <!--sidebar end-->
-  <script type="application/javascript">
-    $(document).ready(function() {
-      $("#date-popover").popover({
-        html: true,
-        trigger: "manual"
-      });
-      $("#date-popover").hide();
-      $("#date-popover").click(function(e) {
-        $(this).hide();
-      });
-
-      $("#my-calendar").zabuto_calendar({
-        action: function() {
-          return myDateFunction(this.id, false);
-        },
-        action_nav: function() {
-          return myNavFunction(this.id);
-        },
-        ajax: {
-          url: "show_data.php?action=1",
-          modal: true
-        },
-        legend: [{
-            type: "text",
-            label: "Special event",
-            badge: "00"
-          },
-          {
-            type: "block",
-            label: "Regular event",
-          }
-        ]
-      });
-    });
-
-    function myNavFunction(id) {
-      $("#date-popover").hide();
-      var nav = $("#" + id).data("navigation");
-      var to = $("#" + id).data("to");
-      console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-    }
-  </script>
