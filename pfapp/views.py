@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.template import loader
 from django.db import connection
 from django.contrib import messages
-from pfapp.models import Person, Fruits
+from pfapp.models import Person, Fruits, User_locations
 from django.core.mail import EmailMessage
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import redirect, render
@@ -31,7 +31,7 @@ def index(request):
         if checkuser(request):
             dashboard = loader.get_template('dashboard_index.html')
             content_view = ''
-            return HttpResponse(dashboard.render({'usr': checkuser(request),'content_view': content_view}, request))
+            return HttpResponse(dashboard.render({'usr': checkuser(request),'content_view': content_view,}, request))
         else:
             t = loader.get_template("index.html")
             f = Fruits.objects.all()
@@ -51,7 +51,9 @@ def Explore(request):
     if checkuser(request):
         viewPage = loader.get_template('dashboard_index.html')
         content_view = 'Explore'
-        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+        location = User_locations.objects.all()
+        farmerlist = [1,2,3,4,5,6,7,8,9,0]
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view, 'far': farmerlist,'location':location}, request))
     else:
         messages.info(request, 'Login!')
         return redirect('/')
@@ -97,6 +99,16 @@ def My_Farmers(request):
         viewPage = loader.get_template('dashboard_index.html')
         content_view = 'My_Farmers'
         return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!')
+        return redirect('/')
+
+def Profile(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'Profile'
+        farmerlist = [1,2,3,4,5,6,7,8,9,0]
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view, 'far': farmerlist}, request))
     else:
         messages.info(request, 'Login Now to view this page!')
         return redirect('/')

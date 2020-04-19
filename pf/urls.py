@@ -31,6 +31,7 @@ urlpatterns = [
     path('Explore/', views.Explore),
     path('signup/', views.signup),
     path('logout/', views.logout),
+    path('Profile/', views.Profile),
 ]
 
 

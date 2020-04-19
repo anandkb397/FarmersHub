@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Acctype(models.Model):
-    User_id = models.ForeignKey('Person', on_delete=models.CASCADE,)
+    u_id = models.ForeignKey('Person', on_delete=models.CASCADE)
     acctypes = models.CharField(max_length=30)
 
 class Person(models.Model):
@@ -10,6 +10,9 @@ class Person(models.Model):
     pwd = models.CharField(max_length=30)
     type = models.CharField(max_length=30)
 
+class User_locations(models.Model):
+    location = models.CharField(max_length=30)
+    u_id = models.ForeignKey('Person', on_delete=models.CASCADE)
 
 class Fruits(models.Model):
     name = models.CharField(max_length=30)

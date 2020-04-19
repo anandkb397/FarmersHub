@@ -4,20 +4,40 @@
 
 {% if usr.type == 'farmer' %}
 
-          {% if content_view == 'dashboard' %}
-              {% include 'dash_view.html' %}
-          {% elif content_view == 'inbox' %}
-              {% include 'inbox.html' %}
-          {% elif content_view == 'profile' %}
+          {% if content_view == 'profile' %}
               {% include 'profile.html' %}
+          {% elif content_view == 'Messages' %}
+              {% include 'Messages.html' %}
+          {% elif content_view == 'Contracts_Manager' %}
+              {% include 'Contracts_Manager.html' %}
+          {% elif content_view == 'Add_Contracts' %}
+              {% include 'Add_Contracts.html' %}
+          {% elif content_view == 'Cancel_Contracts' %}
+              {% include 'Cancel_Contracts.html' %}
+          {% elif content_view == 'Expired_Contracts' %}
+              {% include 'Expired_Contracts.html' %}
+          {% elif content_view == 'My_Consumers' %}
+              {% include 'My_Consumers.html' %}
+          {% elif content_view == 'My_Earnings' %}
+              {% include 'My_Earnings.html' %}
+          {% elif content_view == 'Learn_Farming' %}
+              {% include 'Learn_Farming.html' %}
+          {% elif content_view == 'Dispatch_Manager' %}
+              {% include 'Dispatch_Manager.html' %}
+          {% elif content_view == 'Settings' %}
+              {% include 'Settings.html' %}
+          {% elif content_view == 'Post_Feeds' %}
+              {% include 'Post_Feeds.html' %}
+          {% elif content_view == 'Explore_Farmers' %}
+              {% include 'Explore_Farmers.html' %}
           {% else %}
                 {% include 'profile.html' %}
           {% endif %}
 
 {% elif usr.type == 'consumer' %}
 
-          {% if content_view == 'explore' %}
-              {% include 'explore.html' %}
+          {% if content_view == 'Explore_Farmers' %}
+              {% include 'Explore_Farmers.html' %}
           {% elif content_view == 'My_Farmers' %}
               {% include 'My_Farmers.html' %}
           {% elif content_view == 'My_Contracts' %}

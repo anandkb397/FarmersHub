@@ -2,52 +2,53 @@
       <section class="wrapper site-min-height">
         <div class="row mt">
           <div class="col-lg-12">
-            <div class="row content-panel">
-              <div class="col-md-4 profile-text mt mb centered">
-                <div class="right-divider hidden-sm hidden-xs">
-                  <h4>1922</h4>
-                  <h6>FOLLOWERS</h6>
-                  <h4>290</h4>
-                  <h6>FOLLOWING</h6>
-                  <h4>$ 13,980</h4>
-                  <h6>MONTHLY EARNINGS</h6>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 profile-text">
-                <h3>Sam Soffes</h3>
-                <h6>Main Administrator</h6>
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.</p>
-                <br>
-                <p><button class="btn btn-theme"><i class="fa fa-envelope"></i> Send Message</button></p>
-              </div>
-              <!-- /col-md-4 -->
+            <div class="row content-panel" style="background-image: url('/static/images/Cover-Photo.jpg');background-attachment: fixed;background-repeat: no-repeat; background-position: center; background-size: cover">
+
+                            <!-- /col-md-4 -->
               <div class="col-md-4 centered">
                 <div class="profile-pic">
-                  <p><img src="img/ui-sam.jpg" class="img-circle"></p>
+                  <p><img src="/static/dashboard/img/ui-sam.jpg" class="img-circle"></p>
                   <p>
                     <button class="btn btn-theme"><i class="fa fa-check"></i> Follow</button>
                     <button class="btn btn-theme02">Add</button>
                   </p>
                 </div>
               </div>
+
+              <div class="col-md-4 centered">
+              </div>
+              <!-- /col-md-4 -->
+              <div class="col-md-4 profile-text" style="background-color:rgba(255,255,255,0.6); height:100%;">
+                <h3>{{farmer_name}}</h3>
+                <h6>{{farmer_type}}</h6>
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.</p>
+                <br><br><br><br><br><br><br><br>
+                <p><button class="btn btn-theme"><i class="fa fa-envelope"></i> Send Message</button></p>
+                </div>
+
               <!-- /col-md-4 -->
             </div>
             <!-- /row -->
           </div>
           <!-- /col-lg-12 -->
-          <div class="col-lg-12 mt">
+          <div class="col-lg-12 mt" >
             <div class="row content-panel">
               <div class="panel-heading">
                 <ul class="nav nav-tabs nav-justified">
                   <li class="active">
-                    <a data-toggle="tab" href="#overview">Overview</a>
+                    <a data-toggle="tab" href="#overview">Posts</a>
                   </li>
                   <li>
-                    <a data-toggle="tab" href="#contact" class="contact-map">Contact</a>
+                    <a data-toggle="tab" href="#product">Product</a>
                   </li>
                   <li>
-                    <a data-toggle="tab" href="#edit">Edit Profile</a>
+                    <a data-toggle="tab" href="#plan">Plans</a>
+                  </li>
+                  <li>
+                    <a data-toggle="tab" href="#contact" class="contact-map">About Me</a>
+                  </li>
+                  <li>
+                    <a data-toggle="tab" href="#edit">FeedBack</a>
                   </li>
                 </ul>
               </div>
@@ -224,6 +225,19 @@
                     </div>
                     <!-- /row -->
                   </div>
+                {% for i in far %}
+                  <div id="plan" class="tab-pane">
+                        <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                          <div class="product-panel-2 pn">
+                            <div class="badge badge-hot">HOT</div>
+                            <img src="/static/dashboard/img/product.jpg" width="200" alt="">
+                            <h5 class="mt">Flat Pack Heritage</h5>
+                            <h6>TOTAL SALES: 1388</h6>
+                            <button class="btn btn-small btn-theme04">FULL REPORT</button>
+                          </div>
+                        </div>
+                      </div>
+                  {% endfor %}
                   <!-- /tab-pane -->
                   <div id="edit" class="tab-pane">
                     <div class="row">
