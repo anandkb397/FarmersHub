@@ -1,0 +1,151 @@
+<section id="main-content">
+      <section class="wrapper site-min-height">
+        <div class="row mt">
+
+                  <div id="edit" class="tab-pane">
+                    <div class="row">
+                      <div class="col-lg-8 col-lg-offset-2 detailed">
+                        <h4 class="mb">Change Password</h4>
+                        <form role="form" class="form-horizontal" method="post" action="/Settings/" onSubmit = "return checkPassword(this)">
+                            {% csrf_token %}
+<!--                          <div class="form-group">-->
+<!--                            <label class="col-lg-2 control-label"> Avatar</label>-->
+<!--                            <div class="col-lg-6">-->
+<!--                              <input type="file" id="exampleInputFile" class="file-pos" name='fimg' onchange="readURL(this,'pimg');" accept="image/jpeg, image/png">-->
+<!--                            </div>-->
+<!--                          </div>-->
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Current Password</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="c-name" class="form-control">
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">New Password</label>
+                            <div class="col-lg-6">
+                              <input type="password" class="form-control" name = password1>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Confirm Password</label>
+                            <div class="col-lg-6">
+                              <input type="password" class="form-control" name = password2>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label"></label>
+                            <div class="col-lg-10">
+                            <button class="btn btn-theme" type="submit" name="settings_pwd_button">Save</button>
+                            </div>
+                          </div>
+
+                        </form>
+                      </div>
+
+                      <div class="col-lg-8 col-lg-offset-2 detailed mt">
+                        {% if usr.type == 'farmer' %}
+                        <h4 class="mb">Change Farm location</h4>
+                        {% elif usr.type == 'consumer' %}
+                        <h4 class="mb">Change location</h4>
+                        {% else %}
+                        <h4 class="mb">Change distribution location</h4>
+                        {% endif %}
+                        <form role="form" class="form-horizontal" method="post" action="/Settings/">{% csrf_token %}
+
+                          <div class="form-group">
+                          <label class="col-lg-2 control-label">Country</label>
+                          <div class="col-lg-6">
+                          <input list="country">
+                          <datalist id="country">
+                                  <option value="India">India</option>
+                                  <option value="USA">USA</option>
+                                  <option value="China">China</option>
+                                  <option value="Russia">Russia</option>
+                          </datalist>
+                          </div>
+                          </div>
+
+                          <div class="form-group">
+                          <label class="col-lg-2 control-label">State</label>
+                          <div class="col-lg-6">
+                          <input list="state">
+                          <datalist id="state">
+                            <option value="kerala">
+                            <option value="tamil nadu">
+                            <option value="karnataka">
+                            <option value="Maharashtra">
+                            <option value="Kashmir">
+                          </datalist>
+                          </div>
+                          </div>
+
+                          <div class="form-group">
+                          <label class="col-lg-2 control-label">Locality</label>
+                          <div class="col-lg-6">
+                          <input list="Locality">
+                          <datalist id="Locality">
+                            <option value="thrissur">
+                            <option value="Kunnamkulam">
+                            <option value="Chittilapilly">
+                            <option value="Mundur">
+                            <option value="Puzhakkal">
+                          </datalist>
+                          </div>
+                          </div>
+
+                          <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                              <button class="btn btn-theme" type="submit" name="settings_submit_button">Save</button>
+                            </div>
+                          </div>
+
+                        </form>
+                      </div>
+                      <!-- /col-lg-8 -->
+                    </div>
+                    <!-- /row -->
+                  </div>
+                  <!-- /tab-pane -->
+
+                </div>
+
+
+        <!-- /container -->
+      </section>
+      <!-- /wrapper -->
+    </section>
+
+        <script>
+
+            // Function to check Whether both passwords
+            // is same or not.
+            function checkPassword(form) {
+                password1 = form.password1.value;
+                password2 = form.password2.value;
+
+                // If password not entered
+                if (password1 == '')
+                    alert ("Please enter Password");
+
+                // If confirm password not entered
+                else if (password2 == '')
+                    alert ("Please enter confirm password");
+
+                // If Not same return False.
+                else if (password1 != password2) {
+                    alert ("\nPassword did not match: Please try again...")
+                    return false;
+                }
+
+                // If same return True.
+                else{
+                    return true;
+                }
+            }
+        </script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

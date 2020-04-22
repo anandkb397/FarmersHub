@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+
 
 class Acctype(models.Model):
     u_id = models.ForeignKey('Person', on_delete=models.CASCADE)

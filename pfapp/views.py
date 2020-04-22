@@ -62,6 +62,12 @@ def Settings(request):
     if checkuser(request):
         viewPage = loader.get_template('dashboard_index.html')
         content_view = 'Settings'
+        if 'settings_pwd_button' in request.POST:
+            # password updation code here
+            messages.info(request, 'Password Updated sucessfully!')
+        if 'settings_location_button' in request.POST:
+            # location updation code here
+            messages.info(request, 'Location Updated sucessfully!')
         return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
     else:
         messages.info(request, 'Login!')
