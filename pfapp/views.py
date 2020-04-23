@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.template import loader
 from django.db import connection
 from django.contrib import messages
-from pfapp.models import Person, Fruits, User_locations
+from pfapp.models import Person, Fruits, User_locations, user_details
 from django.core.mail import EmailMessage
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import redirect, render
@@ -39,10 +39,8 @@ def index(request):
 
 def Messages(request):
     if checkuser(request):
-        # dashboard = loader.get_template('dashboard_index.html')
         content_view = 'Messages'
         return render(request, 'dashboard_index.html', {'usr': checkuser(request), 'content_view': content_view})
-        # return HttpResponse(dashboard.render({'usr': checkuser(request), 'content_view': content_view}, request))
     else:
         messages.info(request, 'Login!')
         return redirect('/')
@@ -51,9 +49,9 @@ def Explore(request):
     if checkuser(request):
         viewPage = loader.get_template('dashboard_index.html')
         content_view = 'Explore'
-        location = User_locations.objects.all()
-        farmerlist = [1,2,3,4,5,6,7,8,9,0]
-        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view, 'far': farmerlist,'location':location}, request))
+        # farmer = Person.objects.filter(type='farmer', user_locations__location='thrissur')
+        farmer = User_locations.objects.filter(location='thrissur').all()
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'farmers':farmer}, request))
     else:
         messages.info(request, 'Login!')
         return redirect('/')
@@ -136,6 +134,7 @@ def login(request):
         email = request.POST['email']
         pwd = request.POST['pwd']
         sql = f"SELECT * FROM pfapp_person WHERE email='{email}' AND pwd='{pwd}' LIMIT 1"
+        sql2 = f"SELECT location FROM pfapp_user_locations WHERE email='{email}' AND pwd='{pwd}' LIMIT 1"
         # database connection
         c = connection.cursor()
         c.execute(sql)
@@ -144,7 +143,7 @@ def login(request):
         c.close()
         # If user exist, then a session is created. Else
         if user:
-            request.session['usr'] = {'id': user['id'], 'email': email, 'type': user['type']}
+            request.session['usr'] = {'id': user['id'], 'email': email, 'type': user['type'],}
             return True
         else:
             messages.info(request, 'Invalid emailID or Password')
