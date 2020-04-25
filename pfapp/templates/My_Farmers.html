@@ -1,31 +1,33 @@
 <section id="main-content">
-      <section class="wrapper site-min-height">
-        <div class="row mt">
-
-                {%for i in far %}
-                <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                        <div class="content-panel pn">
-                                <div style="background-image: url('/static/usrimg/2.png');" id="spotify">
-                                        <div class="col-xs-4 col-xs-offset-8">
-
-                                        </div>
-                                        <div class="sp-title">
-                                                <h3>LORDE</h3>
-                                        </div>
-                                        <div class="play">
-                                                <i class="fa fa-play-circle"></i>
-                                        </div>
-                                </div>
+      <section class="wrapper">
+              {%for f in farmers %}
+          <a href="/profile/{{f.uid.name}}">
+              <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                <!-- WHITE PANEL - TOP USER -->
+                <div class="white-panel pn">
+                  <div class="white-header">
+                    <h5>TOP USER</h5>
+                  </div>
+                  <p><img src="/static/usrimg/{{f.u_id.id}}.png" class="img-circle" width="50"></p>
+                  <p><b>{{f.u_id.name}}</b></p>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p class="small mt">MEMBER SINCE</p>
+                      <p>2012</p>
+                    </div>
+                    <div class="col-md-6">
+                      <p class="small mt">TOTAL SPEND</p>
+                      <p>$ 47,60</p>
+                    </div>
+                  </div>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star"></span>
                                 <span class="fa fa-star"></span>
-
-                        </div>
                 </div>
-{% endfor %}
-
-        </div>
-      </section>
+              </div>
+          </a>
+              {% endfor %}
+</section>
 </section>

@@ -9,6 +9,7 @@ from django.core.files.storage import FileSystemStorage
 from django.shortcuts import redirect, render
 import uuid
 import json
+from datetime import date
 
 def rfact (cr,r):
     return {i[1][0]: r[i[0]] for i in enumerate(cr.description)}
@@ -49,8 +50,8 @@ def Explore(request):
     if checkuser(request):
         viewPage = loader.get_template('dashboard_index.html')
         content_view = 'Explore'
-        # farmer = Person.objects.filter(type='farmer', user_locations__location='thrissur')
-        farmer = User_locations.objects.filter(location='thrissur').all()
+        farmer = Person.objects.filter(type='farmer', user_locations__location='thrissur')
+        # farmer = User_locations.objects.filter(location='thrissur').all()
         return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'farmers':farmer}, request))
     else:
         messages.info(request, 'Login!')
@@ -116,6 +117,7 @@ def Profile(request):
     else:
         messages.info(request, 'Login Now to view this page!')
         return redirect('/')
+
 
 def My_Contracts(request):
     if checkuser(request):

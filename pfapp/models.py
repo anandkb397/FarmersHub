@@ -14,24 +14,15 @@ class Person(models.Model):
 class user_details(models.Model):
     name = models.CharField(max_length=30)
     gender = models.CharField(max_length=30)
-    dob = models.DateField(max_length=8)
+    phoneno = models.CharField(max_length=13, default='xxxxxxxxxx')
+    u_id = models.ForeignKey('Person', on_delete=models.CASCADE)
 
-    def age(self):
-        today = date.today()
-
-        try:
-            birthday = self.dob.replace(year=today.year)
-        # raised when birth date is February 29 and the current year is not a leap year
-        except ValueError:
-            birthday = self.dob.replace(year=today.year, day=born.day-1)
-
-        if birthday > today:
-            return today.year - born.year - 1
-        else:
-            return today.year - born.year
 
 class User_locations(models.Model):
-    location = models.CharField(max_length=30)
+    country = models.CharField(max_length=30, default='xxxxxxxxxx')
+    state = models.CharField(max_length=30, default='xxxxxxxxxx')
+    district = models.CharField(max_length=30, default='xxxxxxxxxx')
+    locality = models.CharField(max_length=30,default='xxxxxxxxxx')
     u_id = models.ForeignKey('Person', on_delete=models.CASCADE)
 
 class Fruits(models.Model):
