@@ -50,8 +50,10 @@ def Explore(request):
     if checkuser(request):
         viewPage = loader.get_template('dashboard_index.html')
         content_view = 'Explore'
-        farmer = Person.objects.filter(type='farmer', user_locations__location='thrissur')
-        # farmer = User_locations.objects.filter(location='thrissur').all()
+        usertype = 'farmer'
+        location = 'thrissur'
+        # farmer = Person.objects.filter(type='farmer', user_locations__location='thrissur', user_details__name='NAME')
+        farmer = Person.objects.raw(f"SELECT * FROM pfapp_person, pfapp_user_locations, pfapp_user_details WHERE pfapp_person.type='{usertype}' AND pfapp_user_locations.locality='{location}'")
         return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'farmers':farmer}, request))
     else:
         messages.info(request, 'Login!')
@@ -136,7 +138,6 @@ def login(request):
         email = request.POST['email']
         pwd = request.POST['pwd']
         sql = f"SELECT * FROM pfapp_person WHERE email='{email}' AND pwd='{pwd}' LIMIT 1"
-        sql2 = f"SELECT location FROM pfapp_user_locations WHERE email='{email}' AND pwd='{pwd}' LIMIT 1"
         # database connection
         c = connection.cursor()
         c.execute(sql)
