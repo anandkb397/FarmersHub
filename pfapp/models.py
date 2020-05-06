@@ -14,15 +14,15 @@ class Person(models.Model):
 class user_details(models.Model):
     name = models.CharField(max_length=30)
     gender = models.CharField(max_length=30)
-    phoneno = models.CharField(max_length=13, default='xxxxxxxxxx')
+    phoneno = models.CharField(max_length=13)
     u_id = models.ForeignKey('Person', on_delete=models.CASCADE)
 
 
 class User_locations(models.Model):
-    country = models.CharField(max_length=30, default='xxxxxxxxxx')
-    state = models.CharField(max_length=30, default='xxxxxxxxxx')
-    district = models.CharField(max_length=30, default='xxxxxxxxxx')
-    locality = models.CharField(max_length=30,default='xxxxxxxxxx')
+    country = models.CharField(max_length=30)
+    state = models.CharField(max_length=30)
+    district = models.CharField(max_length=30)
+    locality = models.CharField(max_length=30)
     u_id = models.ForeignKey('Person', on_delete=models.CASCADE)
 
 class Fruits(models.Model):
