@@ -30,52 +30,45 @@
 <!--              <span class="label label-theme pull-right mail-info">2</span>-->
 <!--            </a>-->
 <!--        </li>-->
-
           <li class="sub-menu">
-            <a href="/Profile/">
-              <i class="fa fa-desktop"></i>
-              <span>My Profile</span>
-              </a>
-           </li>
-
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>My Earnings</span>
+            <a {% if content_view == 'Profile' %} class="active" {% endif %} href="/Profile/">
+              <span>Profile</span>
               </a>
           </li>
 
           <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-book"></i>
+            <a {% if content_view == 'My_Earnings' %} class="active" {% endif %} href="/My_Earnings/">
+              <span>My Earnings</span>
+              </a>
+          </li>
+          
+          <li class="sub-menu">
+            <a {% if content_view == 'My_Customers' %} class="active" {% endif %} href="/My_Customers/">
               <span>My Customers</span>
               </a>
           </li>
 
           <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
+            <a {% if content_view == 'Contracts_Manager' %} class="active" {% endif %} href="/Contracts_Manager/">
               <span>Contracts Manager</span>
               </a>
             <ul class="sub">
-              <li><a href="#">New contact Request</a></li>
-              <li><a href="#">Active Contracts</a></li>
-              <li><a href="#">Expired contracts</a></li>
-              <li><a href="#">Add contracts</a></li>
+              <li><a {% if content_view_sub == 'Contracts_Manager_New_Request' %} class="active" {% endif %} href="/Contracts_Manager/New_Request/">New Request</a></li>
+              <li><a {% if content_view_sub == 'Contracts_Manager_Active_Contracts' %} class="active" {% endif %} href="/Contracts_Manager/Active_Contracts/">Active Contracts</a></li>
+              <li><a {% if content_view_sub == 'Contracts_Manager_Expired_Contracts' %} class="active" {% endif %} href="/Contracts_Manager/Expired_Contracts/">Expired Contracts</a></li>
+              <li><a {% if content_view_sub == 'Contracts_Manager_Add_Contracts' %} class="active" {% endif %} href="/Contracts_Manager/Add_Contracts/">Add Contracts</a></li>
             </ul>
           </li>
 
           <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-th"></i>
+            <a {% if content_view == 'Customer_Reviews' %} class="active" {% endif %} href="/Customer_Reviews/">
               <span>Customer Reviews</span>
               </a>
           </li>
 
           <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-th"></i>
-              <span>Package Dispatch Manager</span>
+            <a {% if content_view == 'Dispatch_Manager' %} class="active" {% endif %} href="/Dispatch_Manager/">
+              <span>Dispatch Manager</span>
               </a>
           </li>
 
@@ -86,19 +79,19 @@
 <!--              </a>-->
 <!--          </li>-->
 
-            <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
+          <li class="sub-menu">
+            <a {% if content_view == 'Learn_Farming' %} class="active" {% endif %} href="/Learn_Farming/">
               <span>Learn Farming</span>
               </a>
-            </li>
+          </li>
 
-          <li>
-            <a href="/Settings/">
-              <i class="fa fa-map-marker"></i>
+
+          <li class="sub-menu">
+            <a {% if content_view == 'Settings' %} class="active" {% endif %} href="/Settings/">
               <span>Settings</span>
               </a>
           </li>
+
         </ul>
         <!-- sidebar menu end-->
       </div>
