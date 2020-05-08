@@ -52,8 +52,8 @@ def Explore(request):
         content_view = 'Explore'
         usertype = 'farmer'
         location = 'thrissur'
-        # farmer = Person.objects.filter(type='farmer', user_locations__location='thrissur', user_details__name='NAME')
-        farmer = Person.objects.raw(f"SELECT * FROM pfapp_person, pfapp_user_locations, pfapp_user_details WHERE pfapp_person.type='{usertype}' AND pfapp_user_locations.locality='{location}'")
+        farmer = Person.objects.select_related('name').filter(type=usertype, user_locations__locality=location)
+        # farmer = Person.objects.raw(f"SELECT * FROM pfapp_person, pfapp_user_locations, pfapp_user_details WHERE pfapp_person.type='{usertype}' AND pfapp_user_locations.locality='{location}' ")
         return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'farmers':farmer}, request))
     else:
         messages.info(request, 'Login!')
@@ -137,7 +137,8 @@ def login(request):
     if request.method == "POST":
         email = request.POST['email']
         pwd = request.POST['pwd']
-        sql = f"SELECT * FROM pfapp_person WHERE email='{email}' AND pwd='{pwd}' LIMIT 1"
+        # sql = f"SELECT * FROM pfapp_person WHERE email='{email}' AND pwd='{pwd}' LIMIT 1"
+        sql = f"SELECT * FROM pfapp_person, pfapp_user_details, pfapp_user_locations WHERE pfapp_person.email ='{email}' AND pwd='{pwd}' LIMIT 1"
         # database connection
         c = connection.cursor()
         c.execute(sql)
@@ -146,7 +147,8 @@ def login(request):
         c.close()
         # If user exist, then a session is created. Else
         if user:
-            request.session['usr'] = {'id': user['id'], 'email': email, 'type': user['type'],}
+            # request.session['usr'] = {'id': user['id'], 'email': email, 'type': user['type'],}
+            request.session['usr'] = {'id': user['id'], 'email': email, 'type': user['type'],'name': user['name'], 'country': user['country'], 'locality': user['locality'], 'phoneno':user['phoneno'],}
             return True
         else:
             messages.info(request, 'Invalid emailID or Password')
@@ -233,3 +235,11 @@ def signup(request):
                     stat = "Unable to verify email address provided..please check"
     return HttpResponse(d.render({'data':dv,'snd':snd,'msg': stat, 'signup_page': signup_page}, request))
 
+
+# def login(request):
+#     m = Member.objects.get(username=request.POST['username'])
+#     if m.password == request.POST['password']:
+#         request.session['member_id'] = m.id
+#         return HttpResponse("You're logged in.")
+#     else:
+#         return HttpResponse("Your username and password didn't match.")
