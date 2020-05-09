@@ -14,6 +14,14 @@ from datetime import date
 def rfact (cr,r):
     return {i[1][0]: r[i[0]] for i in enumerate(cr.description)}
 
+def dictfetchall(cursor):
+    "Return all rows from a cursor as a dict"
+    columns = [col[0] for col in cursor.description]
+    return [
+        dict(zip(columns, row))
+        for row in cursor.fetchall()
+    ]
+
 def checkuser(request):
     user_l = ""
     if request.session.has_key('usr'):
@@ -52,8 +60,11 @@ def Explore(request):
         content_view = 'Explore'
         usertype = 'farmer'
         location = 'thrissur'
-        farmer = Person.objects.select_related('name').filter(type=usertype, user_locations__locality=location)
-        # farmer = Person.objects.raw(f"SELECT * FROM pfapp_person, pfapp_user_locations, pfapp_user_details WHERE pfapp_person.type='{usertype}' AND pfapp_user_locations.locality='{location}' ")
+        # farmer = user_details.objects.filter(person__type=usertype, user_locations__locality=location)
+        with connection.cursor() as c:
+            c.execute(f"SELECT * FROM pfapp_person JOIN pfapp_user_locations ON pfapp_user_locations.person_id = pfapp_person.id JOIN pfapp_user_details ON pfapp_user_details.person_id = pfapp_person.id WHERE pfapp_person.type='{usertype}' AND pfapp_user_locations.locality='{location}' ")
+            farmer = dictfetchall(c)
+        # farmer = models.objects.raw(f"SELECT * FROM pfapp_person, pfapp_user_locations, pfapp_user_details WHERE pfapp_person.type='{usertype}' AND pfapp_user_locations.locality='{location}' ")
         return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'farmers':farmer}, request))
     else:
         messages.info(request, 'Login!')
@@ -83,6 +94,15 @@ def Delivery_Conformation(request):
         messages.info(request, 'Login Now to view this page!!')
         return redirect('/')
 
+def My_Earnings(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'My_Earnings'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!!')
+        return redirect('/')
+
 def Learn_Farming(request):
     if checkuser(request):
         viewPage = loader.get_template('dashboard_index.html')
@@ -105,6 +125,24 @@ def My_Farmers(request):
     if checkuser(request):
         viewPage = loader.get_template('dashboard_index.html')
         content_view = 'My_Farmers'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!')
+        return redirect('/')
+
+def My_Customers(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'My_Customers'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!')
+        return redirect('/')
+
+def Customer_Reviews(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'Customer_Reviews'
         return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
     else:
         messages.info(request, 'Login Now to view this page!')
