@@ -15,7 +15,7 @@ class user_details(models.Model):
     name = models.CharField(max_length=30)
     gender = models.CharField(max_length=30)
     phoneno = models.CharField(max_length=13)
-    u_id = models.ForeignKey('Person', on_delete=models.CASCADE)
+    person = models.ForeignKey('Person', on_delete=models.CASCADE)
 
 
 class User_locations(models.Model):
@@ -23,7 +23,7 @@ class User_locations(models.Model):
     state = models.CharField(max_length=30)
     district = models.CharField(max_length=30)
     locality = models.CharField(max_length=30)
-    u_id = models.ForeignKey('Person', on_delete=models.CASCADE)
+    person = models.ForeignKey('Person', on_delete=models.CASCADE)
 
 class Fruits(models.Model):
     name = models.CharField(max_length=30)
