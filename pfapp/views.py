@@ -139,11 +139,60 @@ def My_Customers(request):
         messages.info(request, 'Login Now to view this page!')
         return redirect('/')
 
+def Dispatch_Manager(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'Dispatch_Manager'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!')
+        return redirect('/')
+
 def Customer_Reviews(request):
     if checkuser(request):
         viewPage = loader.get_template('dashboard_index.html')
         content_view = 'Customer_Reviews'
         return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!')
+        return redirect('/')
+
+def New_Request(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'Contracts_Manager'
+        content_view_sub = 'New_Request'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'content_view_sub': content_view_sub,}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!')
+        return redirect('/')
+
+def Active_Contracts(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'Contracts_Manager'
+        content_view_sub = 'Active_Contracts'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'content_view_sub': content_view_sub,}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!')
+        return redirect('/')
+
+def Expired_Contracts(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'Contracts_Manager'
+        content_view_sub = 'Expired_Contracts'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'content_view_sub': content_view_sub,}, request))
+    else:
+        messages.info(request, 'Login Now to view this page!')
+        return redirect('/')
+
+def Add_Contracts(request):
+    if checkuser(request):
+        viewPage = loader.get_template('dashboard_index.html')
+        content_view = 'Contracts_Manager'
+        content_view_sub = 'Add_Contracts'
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'content_view_sub': content_view_sub,}, request))
     else:
         messages.info(request, 'Login Now to view this page!')
         return redirect('/')
@@ -175,18 +224,27 @@ def login(request):
     if request.method == "POST":
         email = request.POST['email']
         pwd = request.POST['pwd']
-        # sql = f"SELECT * FROM pfapp_person WHERE email='{email}' AND pwd='{pwd}' LIMIT 1"
-        sql = f"SELECT * FROM pfapp_person, pfapp_user_details, pfapp_user_locations WHERE pfapp_person.email ='{email}' AND pwd='{pwd}' LIMIT 1"
-        # database connection
-        c = connection.cursor()
-        c.execute(sql)
-        c.cursor.row_factory = rfact
-        user = c.fetchone()
-        c.close()
+        # # sql = f"SELECT * FROM pfapp_person WHERE email='{email}' AND pwd='{pwd}' LIMIT 1"
+        # sql = f"SELECT * FROM pfapp_person, pfapp_user_details, pfapp_user_locations WHERE pfapp_person.email ='{email}' AND pwd='{pwd}' LIMIT 1"
+        # # database connection
+        # c = connection.cursor()
+        # c.execute(sql)
+        # c.cursor.row_factory = rfact
+        # user = c.fetchone()
+        # c.close()
+
+        with connection.cursor() as c:
+            c.execute(f"SELECT * FROM pfapp_person JOIN pfapp_user_locations ON pfapp_user_locations.person_id = pfapp_person.id JOIN pfapp_user_details ON pfapp_user_details.person_id = pfapp_person.id WHERE pfapp_person.email ='{email}' AND pfapp_person.pwd='{pwd}' LIMIT 1 ")
+            c.cursor.row_factory = rfact
+            user = c.fetchone()
+
+
+        # user = Person.objects.raw(f"SELECT * FROM pfapp_person JOIN pfapp_user_locations ON pfapp_user_locations.person_id = pfapp_person.id JOIN pfapp_user_details ON pfapp_user_details.person_id = pfapp_person.id WHERE pfapp_person.email ='{email}' AND pfapp_person.pwd='{pwd}' LIMIT 1 ")
+
         # If user exist, then a session is created. Else
         if user:
             # request.session['usr'] = {'id': user['id'], 'email': email, 'type': user['type'],}
-            request.session['usr'] = {'id': user['id'], 'email': email, 'type': user['type'],'name': user['name'], 'country': user['country'], 'locality': user['locality'], 'phoneno':user['phoneno'],}
+            request.session['usr'] = {'id': user['id'], 'email': email, 'type': user['type'],'name': user['name'], 'country': user['country'], 'locality': user['locality'], 'phoneno':user['phoneno']}
             return True
         else:
             messages.info(request, 'Invalid emailID or Password')

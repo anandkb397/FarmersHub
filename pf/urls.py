@@ -38,7 +38,7 @@ urlpatterns = [
     path('Contracts_Manager/Active_Contracts/',views.Active_Contracts),
     path('Contracts_Manager/Expired_Contracts/',views.Expired_Contracts),
     path('Contracts_Manager/Add_Contracts/',views.Add_Contracts),
-    path('Customer_Reviews/'views.Customer_Reviews),
+    path('Customer_Reviews/',views.Customer_Reviews),
     path('Dispatch_Manager/',views.Dispatch_Manager)
 ]
 

@@ -2,7 +2,7 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img class="img-circle" src="/static/usrimg/{{usr.id}}.png" width="80"></a></p>
+          <p class="centered"><a href="/Profile/"><img class="img-circle" src="/static/usrimg/{{usr.id}}.png" width="80"></a></p>
           <h5 class="centered">{{usr.name}}</h5>
           <h5 class="centered">{{usr.type}}</h5>
           <h5 class="centered">{{usr.locality}}</h5>
@@ -50,14 +50,14 @@
           </li>
 
           <li class="sub-menu">
-            <a {% if content_view == 'Contracts_Manager' %} class="active" {% endif %} href="/Contracts_Manager/">
+            <a {% if content_view == 'Contracts_Manager' %} class="active" {% endif %} href="javascript:;">
               <span>Contracts Manager</span>
               </a>
             <ul class="sub">
-              <li><a {% if content_view_sub == 'Contracts_Manager_New_Request' %} class="active" {% endif %} href="/Contracts_Manager/New_Request/">New Request</a></li>
-              <li><a {% if content_view_sub == 'Contracts_Manager_Active_Contracts' %} class="active" {% endif %} href="/Contracts_Manager/Active_Contracts/">Active Contracts</a></li>
-              <li><a {% if content_view_sub == 'Contracts_Manager_Expired_Contracts' %} class="active" {% endif %} href="/Contracts_Manager/Expired_Contracts/">Expired Contracts</a></li>
-              <li><a {% if content_view_sub == 'Contracts_Manager_Add_Contracts' %} class="active" {% endif %} href="/Contracts_Manager/Add_Contracts/">Add Contracts</a></li>
+              <li><a {% if content_view_sub == 'New_Request' %} class="active" {% endif %} href="/Contracts_Manager/New_Request/">New Request</a></li>
+              <li><a {% if content_view_sub == 'Active_Contracts' %} class="active" {% endif %} href="/Contracts_Manager/Active_Contracts/">Active Contracts</a></li>
+              <li><a {% if content_view_sub == 'Expired_Contracts' %} class="active" {% endif %} href="/Contracts_Manager/Expired_Contracts/">Expired Contracts</a></li>
+              <li><a {% if content_view_sub == 'Add_Contracts' %} class="active" {% endif %} href="/Contracts_Manager/Add_Contracts/">Add Contracts</a></li>
             </ul>
           </li>
 

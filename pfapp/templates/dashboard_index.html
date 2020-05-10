@@ -4,20 +4,22 @@
 
 {% if usr.type == 'farmer' %}
 
-          {% if content_view == 'profile' %}
+          {% if content_view == 'Profile' %}
               {% include 'profile.html' %}
-          {% elif content_view == 'Messages' %}
-              {% include 'Messages.html' %}
           {% elif content_view == 'Contracts_Manager' %}
-              {% include 'Contracts_Manager.html' %}
-          {% elif content_view == 'Add_Contracts' %}
-              {% include 'Add_Contracts.html' %}
-          {% elif content_view == 'Cancel_Contracts' %}
-              {% include 'Cancel_Contracts.html' %}
-          {% elif content_view == 'Expired_Contracts' %}
-              {% include 'Expired_Contracts.html' %}
-          {% elif content_view == 'My_Consumers' %}
-              {% include 'My_Consumers.html' %}
+            {% if content_view_sub == 'New_Request' %}
+                {% include 'New_Request.html' %}
+            {% elif content_view_sub == 'Active_Contracts' %}
+                {% include 'Active_Contracts.html' %}
+            {% elif content_view_sub == 'Expired_Contracts' %}
+                {% include 'Expired_Contracts.html' %}
+            {% elif content_view_sub == 'Add_Contracts' %}
+                {% include 'Add_Contracts.html' %}
+            {% else %}
+                {% include 'Active_Contracts.html' %}
+            {% endif %}
+          {% elif content_view == 'My_Customers' %}
+              {% include 'My_Customers.html' %}
           {% elif content_view == 'My_Earnings' %}
               {% include 'My_Earnings.html' %}
           {% elif content_view == 'Learn_Farming' %}
@@ -26,8 +28,6 @@
               {% include 'Dispatch_Manager.html' %}
           {% elif content_view == 'Settings' %}
               {% include 'Settings.html' %}
-          {% elif content_view == 'Post_Feeds' %}
-              {% include 'Post_Feeds.html' %}
           {% elif content_view == 'Explore_Farmers' %}
               {% include 'Explore_Farmers.html' %}
           {% else %}
@@ -37,7 +37,7 @@
 {% elif usr.type == 'consumer' %}
 
           {% if content_view == 'Explore_Farmers' %}
-              {% include 'Explore_Farmers.html' %}
+              {% include 'explore.html' %}
           {% elif content_view == 'My_Farmers' %}
               {% include 'My_Farmers.html' %}
           {% elif content_view == 'My_Contracts' %}
