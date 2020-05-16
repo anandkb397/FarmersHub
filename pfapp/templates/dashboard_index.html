@@ -37,7 +37,11 @@
 {% elif usr.type == 'consumer' %}
 
           {% if content_view == 'Explore_Farmers' %}
-              {% include 'explore.html' %}
+            {% if user_exist == True %}
+                {% include 'user_profile.html' %}
+            {% else %}
+                {% include 'explore.html' %}
+            {% endif %}
           {% elif content_view == 'My_Farmers' %}
               {% include 'My_Farmers.html' %}
           {% elif content_view == 'My_Contracts' %}

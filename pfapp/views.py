@@ -39,17 +39,22 @@ def index(request):
             login(request)
         if checkuser(request):
             dashboard = loader.get_template('dashboard_index.html')
-            content_view = ''
+            content_view = 'Profile'
             return HttpResponse(dashboard.render({'usr': checkuser(request),'content_view': content_view,}, request))
         else:
             t = loader.get_template("index.html")
             f = Fruits.objects.all()
             return HttpResponse(t.render({'usr': checkuser(request), 'Fruits': f, 'signup_page': signup_page}, request))
 
-def Messages(request):
+def view_profile(request,email):
     if checkuser(request):
-        content_view = 'Messages'
-        return render(request, 'dashboard_index.html', {'usr': checkuser(request), 'content_view': content_view})
+        content_view = 'Explore_Farmers'
+        if email == Person.objects.get(email=email).filter(type='farmer'):
+            loc = checkuser(request)['locality']
+            with connection.cursor() as c:
+                c.execute(f"SELECT * FROM pfapp_person JOIN pfapp_user_locations ON pfapp_user_locations.person_id = pfapp_person.id JOIN pfapp_user_details ON pfapp_user_details.person_id = pfapp_person.id WHERE pfapp_person.email='{email}' AND pfapp_user_locations.locality='{loc}' ")
+                queried_user = dictfetchall(c)
+            return render(request, 'dashboard_index.html', {'usr': checkuser(request), 'content_view': content_view,'queried_user':queried_user,})
     else:
         messages.info(request, 'Login!')
         return redirect('/')
@@ -57,7 +62,7 @@ def Messages(request):
 def Explore(request):
     if checkuser(request):
         viewPage = loader.get_template('dashboard_index.html')
-        content_view = 'Explore'
+        content_view = 'Explore_Farmers'
         usertype = 'farmer'
         location = 'thrissur'
         # farmer = user_details.objects.filter(person__type=usertype, user_locations__locality=location)
@@ -201,8 +206,7 @@ def Profile(request):
     if checkuser(request):
         viewPage = loader.get_template('dashboard_index.html')
         content_view = 'Profile'
-        farmerlist = [1,2,3,4,5,6,7,8,9,0]
-        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view, 'far': farmerlist}, request))
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
     else:
         messages.info(request, 'Login Now to view this page!')
         return redirect('/')

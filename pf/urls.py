@@ -21,7 +21,6 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('Messages/', views.Messages),
     path('Settings/', views.Settings),
     path('Delivery_Conformation/', views.Delivery_Conformation),
     path('Learn_Farming/', views.Learn_Farming),
@@ -39,7 +38,8 @@ urlpatterns = [
     path('Contracts_Manager/Expired_Contracts/',views.Expired_Contracts),
     path('Contracts_Manager/Add_Contracts/',views.Add_Contracts),
     path('Customer_Reviews/',views.Customer_Reviews),
-    path('Dispatch_Manager/',views.Dispatch_Manager)
+    path('Dispatch_Manager/',views.Dispatch_Manager),
+    path('<email>/',views.view_profile)
 ]
 
 
