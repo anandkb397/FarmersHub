@@ -48,13 +48,14 @@ def index(request):
 
 def view_profile(request,email):
     if checkuser(request):
+        user_exist = False
         content_view = 'Explore_Farmers'
-        if email == Person.objects.get(email=email).filter(type='farmer'):
-            loc = checkuser(request)['locality']
-            with connection.cursor() as c:
-                c.execute(f"SELECT * FROM pfapp_person JOIN pfapp_user_locations ON pfapp_user_locations.person_id = pfapp_person.id JOIN pfapp_user_details ON pfapp_user_details.person_id = pfapp_person.id WHERE pfapp_person.email='{email}' AND pfapp_user_locations.locality='{loc}' ")
-                queried_user = dictfetchall(c)
-            return render(request, 'dashboard_index.html', {'usr': checkuser(request), 'content_view': content_view,'qusr':queried_user,})
+        loc = checkuser(request)['locality']
+        with connection.cursor() as c:
+            c.execute(f"SELECT * FROM pfapp_person JOIN pfapp_user_locations ON pfapp_user_locations.person_id = pfapp_person.id JOIN pfapp_user_details ON pfapp_user_details.person_id = pfapp_person.id WHERE pfapp_person.email='{email}' AND pfapp_user_locations.locality='{loc}' ")
+            queried_user = dictfetchall(c)
+            user_exist = True
+        return render(request, 'dashboard_index.html', {'usr': checkuser(request), 'content_view': content_view,'qusr':queried_user,'user_exist':user_exist,})
     else:
         messages.info(request, 'Login!')
         return redirect('/')
