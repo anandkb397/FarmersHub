@@ -48,14 +48,17 @@ def index(request):
 
 def view_profile(request,email):
     if checkuser(request):
-        user_exist = False
+        user_exist = 0
+        remail = email
         content_view = 'Explore_Farmers'
-        loc = checkuser(request)['locality']
         with connection.cursor() as c:
-            c.execute(f"SELECT * FROM pfapp_person JOIN pfapp_user_locations ON pfapp_user_locations.person_id = pfapp_person.id JOIN pfapp_user_details ON pfapp_user_details.person_id = pfapp_person.id WHERE pfapp_person.email='{email}' AND pfapp_user_locations.locality='{loc}' ")
-            queried_user = dictfetchall(c)
-            user_exist = True
-        return render(request, 'dashboard_index.html', {'usr': checkuser(request), 'content_view': content_view,'qusr':queried_user,'user_exist':user_exist,})
+            c.execute(f"SELECT * FROM pfapp_person JOIN pfapp_user_locations ON pfapp_user_locations.person_id = pfapp_person.id JOIN pfapp_user_details ON pfapp_user_details.person_id = pfapp_person.id WHERE pfapp_person.email='{remail}' LIMIT 1")
+            # queried_user = dictfetchall(c)
+            c.cursor.row_factory = rfact
+            q_usr = c.fetchone()
+            # print(q_usr)
+        user_exist = 1
+        return render(request, 'dashboard_index.html', {'usr': checkuser(request), 'content_view': content_view,'qusr':q_usr,'user_exist':user_exist,})
     else:
         messages.info(request, 'Login!')
         return redirect('/')
@@ -63,6 +66,7 @@ def view_profile(request,email):
 def Explore(request):
     if checkuser(request):
         viewPage = loader.get_template('dashboard_index.html')
+        user_exist = 0
         content_view = 'Explore_Farmers'
         usertype = 'farmer'
         location = 'thrissur'
@@ -71,7 +75,7 @@ def Explore(request):
             c.execute(f"SELECT * FROM pfapp_person JOIN pfapp_user_locations ON pfapp_user_locations.person_id = pfapp_person.id JOIN pfapp_user_details ON pfapp_user_details.person_id = pfapp_person.id WHERE pfapp_person.type='{usertype}' AND pfapp_user_locations.locality='{location}' ")
             farmer = dictfetchall(c)
         # farmer = models.objects.raw(f"SELECT * FROM pfapp_person, pfapp_user_locations, pfapp_user_details WHERE pfapp_person.type='{usertype}' AND pfapp_user_locations.locality='{location}' ")
-        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'farmers':farmer}, request))
+        return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'farmers':farmer,'user_exist':user_exist}, request))
     else:
         messages.info(request, 'Login!')
         return redirect('/')

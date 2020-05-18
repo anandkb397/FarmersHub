@@ -37,7 +37,7 @@
 {% elif usr.type == 'consumer' %}
 
           {% if content_view == 'Explore_Farmers' %}
-            {% if queried_user %}
+            {% if user_exist == 1 %}
                 {% include 'user_profile.html' %}
             {% else %}
                 {% include 'explore.html' %}
