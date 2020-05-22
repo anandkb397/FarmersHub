@@ -38,13 +38,16 @@ def index(request):
         if 'signin' in request.POST:
             login(request)
         if checkuser(request):
-            dashboard = loader.get_template('dashboard_index.html')
-            content_view = 'Profile'
-            return HttpResponse(dashboard.render({'usr': checkuser(request),'content_view': content_view,}, request))
+            loged_user = request.session['usr']
+            if loged_user.get('type') == 'consumer':
+                return redirect('Explore/')
+            else:
+                return redirect('Profile/')
+            # return render(request, 'dashboard_index.html', {'usr': checkuser(request), 'content_view': content_view,'user_exist':user_exist,'loged_user_type':loged_user_type})
         else:
-            t = loader.get_template("index.html")
             f = Fruits.objects.all()
-            return HttpResponse(t.render({'usr': checkuser(request), 'Fruits': f, 'signup_page': signup_page}, request))
+            return render(request, 'index.html', {'usr': checkuser(request), 'Fruits': f, 'signup_page': signup_page})
+        
 
 def view_profile(request,email):
     if checkuser(request):
@@ -60,7 +63,7 @@ def view_profile(request,email):
         user_exist = 1
         return render(request, 'dashboard_index.html', {'usr': checkuser(request), 'content_view': content_view,'qusr':q_usr,'user_exist':user_exist,})
     else:
-        messages.info(request, 'Login!')
+        messages.info(request, 'Login Now to view this page!!!')
         return redirect('/')
 
 def Explore(request):
@@ -77,7 +80,7 @@ def Explore(request):
         # farmer = models.objects.raw(f"SELECT * FROM pfapp_person, pfapp_user_locations, pfapp_user_details WHERE pfapp_person.type='{usertype}' AND pfapp_user_locations.locality='{location}' ")
         return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'farmers':farmer,'user_exist':user_exist}, request))
     else:
-        messages.info(request, 'Login!')
+        messages.info(request, 'Login Now to view this page!!')
         return redirect('/')
 
 def Settings(request):
@@ -92,7 +95,7 @@ def Settings(request):
             messages.info(request, 'Location Updated sucessfully!')
         return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view}, request))
     else:
-        messages.info(request, 'Login!')
+        messages.info(request, 'Login Now to view this page!!')
         return redirect('/')
 
 def Delivery_Conformation(request):

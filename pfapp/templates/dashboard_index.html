@@ -37,19 +37,19 @@
 {% elif usr.type == 'consumer' %}
 
           {% if content_view == 'Explore_Farmers' %}
-            {% if user_exist == 1 %}
-                {% include 'user_profile.html' %}
-            {% else %}
-                {% include 'explore.html' %}
-            {% endif %}
+
+                    {% if user_exist == 1 %}
+                        {% include 'user_profile.html' %}
+                    {% else %}
+                        {% include 'explore.html' %}
+                    {% endif %}
+
           {% elif content_view == 'My_Farmers' %}
               {% include 'My_Farmers.html' %}
           {% elif content_view == 'My_Contracts' %}
               {% include 'My_Contracts.html' %}
           {% elif content_view == 'Surpluse_Market' %}
               {% include 'Surpluse_Market.html' %}
-          {% elif content_view == 'Messages' %}
-              {% include 'Messages.html' %}
           {% elif content_view == 'Learn_Farming' %}
               {% include 'Learn_Farming.html' %}
           {% elif content_view == 'Delivery_Conformation' %}
@@ -57,7 +57,7 @@
           {% elif content_view == 'Settings' %}
               {% include 'Settings.html' %}
           {% else %}
-                {% include 'explore.html' %}
+                {% include 'Settings.html' %}
           {% endif %}
 
 {% elif usr.type == 'distributor' %}
