@@ -29,6 +29,41 @@
       {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
 {% endfor %} {% endif %}
 
+<style>
+
+  /* Create two equal columns that floats next to each other */
+  .column1 {
+    float: left;
+    width: 70%;
+    padding: 10px;
+    height: 300px; 
+    box-sizing: border-box;
+    margin-right: 5%;
+    border: 1px solid #DCDBD7;
+    box-shadow: 5px 5px 2.5px #aaaaaa;
+    /* Should be removed. Only for demonstration */
+  }
+  
+  .column2 {
+    float: right;
+    postion: fixed;
+    width: 25%;
+    padding: 10px;
+    height: 300px; 
+    border: 1px solid #DCDBD7;
+    box-sizing: border-box;
+  
+    /* Should be removed. Only for demonstration */
+  }
+  
+  
+  /* Clear floats after the columns */
+  
+  .row1:after {
+    position: relative;
+  } 
+  </style>
+
 </head>
 
 <body>
@@ -300,6 +335,7 @@
       return false;
     });
   </script>
+
   <script type="application/javascript">
     $(document).ready(function() {
       $("#date-popover").popover({
@@ -367,6 +403,7 @@
         }
     }
 </script>
+
 </body>
 
 </html>

@@ -32,3 +32,19 @@ class Fruits(models.Model):
 
     def __str__(self):
         return self.name
+
+class products(models.Model):
+    name = models.CharField(max_length=30)
+
+class available_contract(models.Model):
+    product = models.ManyToManyField(products)
+    quantity = models.IntegerField()
+    quantity_unit = models.CharField(max_length=15)
+    duration = models.IntegerField()
+    duration_unit = models.CharField(max_length=10)
+    frequency = models.IntegerField()
+    frequency_unit = models.CharField(max_length=10)
+    price = models.IntegerField()
+    price_unit = models.CharField(max_length=30)
+    Person = models.ForeignKey('Person', on_delete=models.CASCADE)
+

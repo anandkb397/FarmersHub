@@ -56,10 +56,8 @@ def view_profile(request,email):
         content_view = 'Explore_Farmers'
         with connection.cursor() as c:
             c.execute(f"SELECT * FROM pfapp_person JOIN pfapp_user_locations ON pfapp_user_locations.person_id = pfapp_person.id JOIN pfapp_user_details ON pfapp_user_details.person_id = pfapp_person.id WHERE pfapp_person.email='{remail}' LIMIT 1")
-            # queried_user = dictfetchall(c)
             c.cursor.row_factory = rfact
             q_usr = c.fetchone()
-            # print(q_usr)
         user_exist = 1
         return render(request, 'dashboard_index.html', {'usr': checkuser(request), 'content_view': content_view,'qusr':q_usr,'user_exist':user_exist,})
     else:
@@ -73,11 +71,9 @@ def Explore(request):
         content_view = 'Explore_Farmers'
         usertype = 'farmer'
         location = 'thrissur'
-        # farmer = user_details.objects.filter(person__type=usertype, user_locations__locality=location)
         with connection.cursor() as c:
             c.execute(f"SELECT * FROM pfapp_person JOIN pfapp_user_locations ON pfapp_user_locations.person_id = pfapp_person.id JOIN pfapp_user_details ON pfapp_user_details.person_id = pfapp_person.id WHERE pfapp_person.type='{usertype}' AND pfapp_user_locations.locality='{location}' ")
             farmer = dictfetchall(c)
-        # farmer = models.objects.raw(f"SELECT * FROM pfapp_person, pfapp_user_locations, pfapp_user_details WHERE pfapp_person.type='{usertype}' AND pfapp_user_locations.locality='{location}' ")
         return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'farmers':farmer,'user_exist':user_exist}, request))
     else:
         messages.info(request, 'Login Now to view this page!!')
@@ -250,20 +246,13 @@ def login(request):
             c.cursor.row_factory = rfact
             user = c.fetchone()
 
-
-        # user = Person.objects.raw(f"SELECT * FROM pfapp_person JOIN pfapp_user_locations ON pfapp_user_locations.person_id = pfapp_person.id JOIN pfapp_user_details ON pfapp_user_details.person_id = pfapp_person.id WHERE pfapp_person.email ='{email}' AND pfapp_person.pwd='{pwd}' LIMIT 1 ")
-
-        # If user exist, then a session is created. Else
+        # If user exist, then a session is created.
         if user:
-            # request.session['usr'] = {'id': user['id'], 'email': email, 'type': user['type'],}
             request.session['usr'] = {'id': user['id'], 'email': email, 'type': user['type'],'name': user['name'], 'country': user['country'], 'locality': user['locality'], 'phoneno':user['phoneno']}
             return True
         else:
             messages.info(request, 'Invalid emailID or Password')
             return HttpResponseRedirect('/', request)
-
-
-
 
 def logout(request):
     if request.session.has_key('usr'):
@@ -342,12 +331,3 @@ def signup(request):
                     print('signup mail error :', str(ex))
                     stat = "Unable to verify email address provided..please check"
     return HttpResponse(d.render({'data':dv,'snd':snd,'msg': stat, 'signup_page': signup_page}, request))
-
-
-# def login(request):
-#     m = Member.objects.get(username=request.POST['username'])
-#     if m.password == request.POST['password']:
-#         request.session['member_id'] = m.id
-#         return HttpResponse("You're logged in.")
-#     else:
-#         return HttpResponse("Your username and password didn't match.")
