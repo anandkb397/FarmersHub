@@ -36,7 +36,7 @@ class Fruits(models.Model):
 class products(models.Model):
     name = models.CharField(max_length=30)
 
-class available_contract(models.Model):
+class contracts(models.Model):
     product = models.ManyToManyField(products)
     quantity = models.IntegerField()
     quantity_unit = models.CharField(max_length=15)
@@ -47,4 +47,5 @@ class available_contract(models.Model):
     price = models.IntegerField()
     price_unit = models.CharField(max_length=30)
     Person = models.ForeignKey('Person', on_delete=models.CASCADE)
+    status = models.CharField(max_length=10,default='available')
 
