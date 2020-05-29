@@ -76,7 +76,7 @@ def Explore(request):
             farmer = dictfetchall(c)
         return HttpResponse(viewPage.render({'usr': checkuser(request), 'content_view': content_view,'farmers':farmer,'user_exist':user_exist}, request))
     else:
-        messages.info(request, 'Login Now to view this page!!')
+        messages.info(request, 'Login Now !')
         return redirect('/')
 
 def Settings(request):
